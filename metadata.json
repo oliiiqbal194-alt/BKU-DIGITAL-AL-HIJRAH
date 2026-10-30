@@ -1,0 +1,6 @@
+{
+  "name": "BKU AL HIJRAH DIGITAL - Sistem Buku Kas Umum & Kas Kegiatan",
+  "description": "Aplikasi Buku Kas Umum (BKU), Buku Pembantu Kegiatan, dan Rekapitulasi Anggaran Bulanan otomatis dengan keamanan enkripsi data, format rupiah terbilang, dan ekspor PDF/Excel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

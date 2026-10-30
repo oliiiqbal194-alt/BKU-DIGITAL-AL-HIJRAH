@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transaksi/{transaksiId} {
+      allow read, write: if true;
+    }
+
+    match /kegiatan/{kegiatanId} {
+      allow read, write: if true;
+    }
+
+    match /instansi/{instansiId} {
+      allow read, write: if true;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

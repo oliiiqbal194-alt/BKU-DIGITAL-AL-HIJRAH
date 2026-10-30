@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "Transaksi": {
+      "title": "Transaksi BKU",
+      "description": "Catatan transaksi penerimaan dan pengeluaran kas BKU",
+      "type": "object",
+      "properties": {
+        "tanggal": { "type": "string", "description": "Format YYYY-MM-DD" },
+        "bulan": { "type": "number", "description": "1 - 12" },
+        "tahun": { "type": "number", "description": "Tahun anggaran" },
+        "nomorBukti": { "type": "string", "description": "Nomor bukti transaksi" },
+        "uraian": { "type": "string", "description": "Rincian uraian transaksi" },
+        "kodeRekening": { "type": "string" },
+        "posKategori": { "type": "string" },
+        "sumberDana": { "type": "string" },
+        "jenisKas": { "type": "string" },
+        "jenisTransaksi": { "type": "string" },
+        "metodePembayaran": { "type": "string" },
+        "nominal": { "type": "number" },
+        "kegiatanId": { "type": "string" },
+        "kegiatanNama": { "type": "string" },
+        "penerima": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["tanggal", "bulan", "tahun", "uraian", "jenisKas", "jenisTransaksi", "nominal"]
+    },
+    "Kegiatan": {
+      "title": "Kegiatan Anggaran",
+      "description": "Sub-kegiatan anggaran pagu BKU",
+      "type": "object",
+      "properties": {
+        "kodeKegiatan": { "type": "string" },
+        "namaKegiatan": { "type": "string" },
+        "penanggungJawab": { "type": "string" },
+        "paguAnggaran": { "type": "number" },
+        "sumberDana": { "type": "string" },
+        "tahun": { "type": "number" },
+        "targetWaktu": { "type": "string" },
+        "deskripsi": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["kodeKegiatan", "namaKegiatan", "paguAnggaran", "sumberDana", "tahun"]
+    },
+    "Instansi": {
+      "title": "Profil Instansi",
+      "description": "Informasi profil lembaga dan pejabat bendahara",
+      "type": "object",
+      "properties": {
+        "namaInstansi": { "type": "string" },
+        "tahunAjaran": { "type": "string" },
+        "unitPengelola": { "type": "string" },
+        "alamat": { "type": "string" },
+        "telepon": { "type": "string" },
+        "email": { "type": "string" },
+        "namaKepala": { "type": "string" },
+        "nipKepala": { "type": "string" },
+        "jabatanKepala": { "type": "string" },
+        "namaBendahara": { "type": "string" },
+        "nipBendahara": { "type": "string" },
+        "jabatanBendahara": { "type": "string" },
+        "kotaTandaTangan": { "type": "string" },
+        "tahunAnggaran": { "type": "number" },
+        "saldoAwalTahun": { "type": "number" },
+        "nomorRekeningBank": { "type": "string" },
+        "namaBank": { "type": "string" },
+        "logoUrl": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/transaksi/{transaksiId}": {
+      "schema": { "$ref": "#/entities/Transaksi" },
+      "description": "Koleksi catatan transaksi BKU"
+    },
+    "/kegiatan/{kegiatanId}": {
+      "schema": { "$ref": "#/entities/Kegiatan" },
+      "description": "Koleksi sub-kegiatan anggaran pagu BKU"
+    },
+    "/instansi/{instansiId}": {
+      "schema": { "$ref": "#/entities/Instansi" },
+      "description": "Koleksi profil instansi sekolah"
+    }
+  }
+}
