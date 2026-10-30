@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/BKU-DIGITAL-AL-HIJRAH/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
